@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Verifica Notícia — Detector de Fake News</title>
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+ 
+  <!-- NAVBAR -->
+<nav class="navbar">
+<div class="navbar-inner">
+<a href="index.html" class="navbar-brand">
+<i class="fa-solid fa-magnifying-glass" style="font-size:1.8rem; color:var(--primary)"></i>
+<span>Verifica Notícia</span>
+</a>
+<div class="navbar-actions" id="navbarActions">
+<a href="login.html" class="btn btn-outline btn-sm">Entrar</a>
+<a href="register.html" class="btn btn-primary btn-sm">Cadastrar</a>
+</div>
+</div>
+</nav>
+ 
+  <!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+<div class="hero-logo-wrap">
+<i class="fa-solid fa-magnifying-glass hero-icon"></i>
+</div>
+<h1>Chega de <span>Fake News!</span></h1>
+<p>Verifique se uma notícia é verdadeira ou falsa em segundos usando Inteligência Artificial.</p>
+ 
+      <!-- SEARCH CARD -->
+<div class="search-card">
+<div class="search-tabs">
+<button class="search-tab active" id="tabText" onclick="switchTab('text')">
+<i class="fa-solid fa-align-left"></i> Verificar Texto
+</button>
+<button class="search-tab" id="tabUrl" onclick="switchTab('url')">
+<i class="fa-solid fa-link"></i> Verificar URL
+</button>
+</div>
+ 
+        <!-- Input Texto -->
+<div id="inputText">
+<div class="search-input-group">
+<textarea
+              class="search-input"
+              id="textInput"
+              placeholder="Cole aqui o texto ou afirmação que deseja verificar... Ex: Luísa Sonza morreu em acidente"
+              maxlength="2000"
+              oninput="updateCounter()"
+></textarea>
+</div>
+<div class="char-counter" id="charCounter">0 / 2000</div>
+</div>
+ 
+        <!-- Input URL -->
+<div id="inputUrl" style="display:none;">
+<div class="search-input-group">
+<input
+              type="url"
+              class="search-input"
+              id="urlInput"
+              placeholder="Cole aqui a URL da notícia... Ex: https://g1.globo.com/..."
+            />
+<i class="fa-solid fa-link search-icon"></i>
+</div>
+</div>
+ 
+        <div id="alertBox"></div>
+ 
+        <button class="btn btn-primary btn-xl w-full" id="btnVerify" onclick="verify()">
+<i class="fa-solid fa-magnifying-glass"></i>
+          Verificar Agora
+</button>
+ 
+        <p class="search-hint">
+<i class="fa-solid fa-shield-halved"></i>
+          Sem necessidade de cadastro — verificação gratuita!
+</p>
+</div>
+</div>
+</section>
+ 
+  <!-- STATS -->
+<section class="stats-bar">
+<div class="stats-inner">
+<div class="stat-item">
+<div class="stat-number">IA</div>
+<div class="stat-label">Powered by GPT-4o</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">100%</div>
+<div class="stat-label">Gratuito para usar</div>
+</div>
+<div class="stat-item">
+<div class="stat-number"><5s</div>
+<div class="stat-label">Tempo de resposta</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">PT-BR</div>
+<div class="stat-label">Foco no Brasil</div>
+</div>
+</div>
+</section>
+ 
+  <!-- FEATURES -->
+<section class="main-content">
+<div class="container">
+<h2 class="section-title" style="text-align:center;">Como funciona?</h2>
+<p class="section-subtitle" style="text-align:center;">
+        Em 3 passos simples você descobre se uma notícia é verdadeira
+</p>
+ 
+      <div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">📝</div>
+<h3>1. Cole o texto ou URL</h3>
+<p>Insira a notícia suspeita, seja um texto copiado do WhatsApp ou o link de um site.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🤖</div>
+<h3>2. IA analisa o conteúdo</h3>
+<p>Nossa inteligência artificial verifica a informação em bases de dados confiáveis e fontes jornalísticas.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">✅</div>
+<h3>3. Receba o resultado</h3>
+<p>Veja o veredicto detalhado com explicação completa e fontes para comprovar a análise.</p>
+</div>
+</div>
+ 
+      <!-- Por que usar -->
+<div class="why-section">
+<h2 class="section-title" style="text-align:center; margin-top:48px;">Por que usar o Verifica Notícia?</h2>
+<p class="section-subtitle" style="text-align:center;">Recursos pensados para combater a desinformação</p>
+ 
+        <div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">🔍</div>
+<h3>Fontes verificadas</h3>
+<p>Apresentamos as fontes usadas na análise para que você possa conferir por conta própria.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📊</div>
+<h3>Nível de confiança</h3>
+<p>Mostramos o percentual de certeza da análise, sendo transparente sobre as limitações.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📤</div>
+<h3>Compartilhe o resultado</h3>
+<p>Compartilhe a verificação no WhatsApp, Twitter ou copie o link direto.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🕓</div>
+<h3>Histórico pessoal</h3>
+<p>Crie uma conta gratuita e mantenha um histórico de todas suas verificações.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 
+  <!-- CTA -->
+<section class="cta-section">
+<div class="cta-content">
+<h2>Não espalhe fake news!</h2>
+<p>Verifique antes de compartilhar. É rápido, gratuito e salva sua reputação.</p>
+<a href="#" onclick="scrollToSearch()" class="btn btn-secondary btn-xl">
+<i class="fa-solid fa-magnifying-glass"></i>
+        Verificar uma notícia agora
+</a>
+</div>
+</section>
+ 
+  <!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<i class="fa-solid fa-magnifying-glass" style="font-size:1.5rem; color:var(--primary)"></i>
+<span>Verifica Notícia</span>
+</div>
+<p>Projeto acadêmico de combate à desinformação com IA</p>
+<p style="margin-top:8px; font-size:0.8rem;">© 2025 Verifica Notícia — Todos os direitos reservados</p>
+</div>
+</footer>
+ 
+  <!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+<div class="loading-card">
+<div class="loading-spinner"></div>
+<h3>Analisando a notícia...</h3>
+<p style="color:#6b7280; font-size:0.9rem;">Nossa IA está verificando as informações</p>
+<ul class="loading-steps">
+<li class="loading-step active" id="step1">
+<div class="step-icon">1</div> Coletando conteúdo
+</li>
+<li class="loading-step" id="step2">
+<div class="step-icon">2</div> Analisando com IA
+</li>
+<li class="loading-step" id="step3">
+<div class="step-icon">3</div> Buscando fontes
+</li>
+<li class="loading-step" id="step4">
+<div class="step-icon">4</div> Gerando resultado
+</li>
+</ul>
+</div>
+</div>
+ 
+  <script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
