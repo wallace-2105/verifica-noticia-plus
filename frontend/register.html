@@ -1,153 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cadastrar — Verifica Notícia</title>
-<link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastrar — Verifica Notícia</title>
+  <meta name="description" content="Crie sua conta gratuita no Verifica Notícia para sincronizar e gerenciar seu histórico de checagens."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
- 
-  <div class="auth-page">
-<div class="auth-card">
- 
-      <div class="auth-logo">
-<i class="fa-solid fa-magnifying-glass" style="font-size:3rem; color:var(--primary)"></i>
-<h1>Verifica Notícia</h1>
-<p>Crie sua conta gratuita</p>
-</div>
- 
-      <h2 class="auth-title">Criar conta</h2>
-<p class="auth-subtitle">Salve seu histórico e compartilhe verificações</p>
- 
-      <div id="alertBox"></div>
- 
-      <form id="registerForm" onsubmit="handleRegister(event)">
-<div class="form-group">
-<label class="form-label">Nome completo</label>
-<div class="input-with-icon">
-<i class="fa-solid fa-user input-icon"></i>
-<input type="text" class="form-input" id="name" placeholder="Seu nome" required/>
-</div>
-</div>
- 
-        <div class="form-group">
-<label class="form-label">Email</label>
-<div class="input-with-icon">
-<i class="fa-solid fa-envelope input-icon"></i>
-<input type="email" class="form-input" id="email" placeholder="seu@email.com" required/>
-</div>
-</div>
- 
-        <div class="form-group">
-<label class="form-label">Senha</label>
-<div class="input-with-icon">
-<i class="fa-solid fa-lock input-icon"></i>
-<input type="password" class="form-input" id="password" placeholder="Mínimo 6 caracteres" required/>
-<button type="button" class="input-toggle-password" onclick="togglePassword()">
-<i class="fa-solid fa-eye" id="eyeIcon"></i>
-</button>
-</div>
-</div>
- 
-        <button type="submit" class="btn btn-primary w-full btn-lg" id="btnRegister">
-<i class="fa-solid fa-user-plus"></i>
 
-          Criar conta grátis
-</button>
-</form>
- 
-      <div class="divider">ou</div>
- 
-      <a href="index.html" class="btn btn-ghost w-full">
-<i class="fa-solid fa-magnifying-glass"></i>
-
-        Verificar sem cadastro
-</a>
- 
-      <p style="text-align:center; margin-top:24px; font-size:0.9rem; color:#6b7280;">
-
-        Já tem conta?
-<a href="login.html" style="color:var(--primary); font-weight:600;">Entrar</a>
-</p>
- 
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon-wrapper">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>Verifica <span class="brand-text-accent">Notícia</span></span>
+      </a>
+      <div class="navbar-actions" id="navbarActions">
+        <!-- Injetado dinamicamente pelo auth.js -->
+      </div>
     </div>
-</div>
- 
+  </nav>
+
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <div class="auth-logo-icon">
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+        <h2 class="auth-title">Crie sua Conta Grátis</h2>
+        <p class="auth-subtitle">Salve suas análises na nuvem e combata a desinformação</p>
+      </div>
+
+      <div id="alertBox"></div>
+
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label class="form-label" for="name">Nome Completo</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input
+              type="text"
+              class="form-input"
+              id="name"
+              placeholder="Ex: Maria Silva"
+              required
+              autocomplete="name"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">E-mail</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input
+              type="email"
+              class="form-input"
+              id="email"
+              placeholder="seu@email.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Senha</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input
+              type="password"
+              class="form-input"
+              id="password"
+              placeholder="Mínimo 6 caracteres"
+              minlength="6"
+              required
+              autocomplete="new-password"
+            />
+            <button type="button" class="input-toggle-password" onclick="togglePassword()" title="Mostrar/ocultar senha">
+              <i class="fa-solid fa-eye" id="eyeIcon"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full btn-lg" id="btnRegister">
+          <i class="fa-solid fa-user-plus"></i>
+          Criar Conta Gratuita
+        </button>
+      </form>
+
+      <div class="divider">ou</div>
+
+      <a href="index.html" class="btn btn-ghost w-full">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Verificar Notícia sem Cadastro
+      </a>
+
+      <p style="text-align:center; margin-top:24px; font-size:0.92rem; color:var(--text-secondary);">
+        Já possui uma conta?
+        <a href="login.html" style="color:var(--primary); font-weight:700; text-decoration:none;">Entrar</a>
+      </p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>© 2026 Verifica Notícia — Combate inteligente à desinformação</p>
+    </div>
+  </footer>
+
   <script src="js/auth.js"></script>
-<script src="js/api.js"></script>
-<script>
-
+  <script src="js/api.js"></script>
+  <script>
     if (auth.isLoggedIn()) window.location.href = 'index.html';
- 
+
     async function handleRegister(e) {
-
       e.preventDefault();
-
       const btn = document.getElementById('btnRegister');
-
       const alertBox = document.getElementById('alertBox');
-
       alertBox.innerHTML = '';
- 
+
       btn.disabled = true;
-
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Criando conta...';
- 
+
       try {
-
         const data = await api.register({
-
           name: document.getElementById('name').value,
-
           email: document.getElementById('email').value,
-
           password: document.getElementById('password').value
-
         });
- 
+
         auth.setToken(data.token, data.user);
+        showToast('Conta criada com sucesso! Redirecionando...', 'success');
+        setTimeout(() => window.location.href = 'index.html', 900);
 
-        alertBox.innerHTML = `<div class="alert alert-success"><i class="fa-solid fa-check"></i> Conta criada! Redirecionando...</div>`;
-
-        setTimeout(() => window.location.href = 'index.html', 1000);
- 
       } catch (error) {
-
-        alertBox.innerHTML = `<div class="alert alert-error"><i class="fa-solid fa-circle-exclamation"></i> ${error.message}</div>`;
-
+        alertBox.innerHTML = `
+          <div class="toast toast-error show" style="margin-bottom:20px; width:100%; max-width:100%;">
+            <div class="toast-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+            <div class="toast-msg">${error.message || 'Erro ao criar conta.'}</div>
+          </div>
+        `;
         btn.disabled = false;
-
-        btn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Criar conta grátis';
-
+        btn.innerHTML = '<i class="fa-solid fa-user-plus"></i> Criar Conta Gratuita';
       }
-
     }
- 
+
     function togglePassword() {
-
       const input = document.getElementById('password');
-
       const icon = document.getElementById('eyeIcon');
-
       if (input.type === 'password') {
-
         input.type = 'text';
-
         icon.classList.replace('fa-eye', 'fa-eye-slash');
-
       } else {
-
         input.type = 'password';
-
         icon.classList.replace('fa-eye-slash', 'fa-eye');
-
       }
-
     }
-</script>
+  </script>
 </body>
 </html>
- 
