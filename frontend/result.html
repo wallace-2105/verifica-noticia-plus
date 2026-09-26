@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Resultado — Verifica Notícia</title>
-<link rel="stylesheet" href="css/style.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resultado da Verificação — Verifica Notícia</title>
+  <meta name="description" content="Veredito detalhado, pontuação de confiança e fontes jornalísticas para a notícia verificada."/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
- 
+
+  <!-- NAVBAR -->
   <nav class="navbar">
-<div class="navbar-inner">
-<a href="index.html" class="navbar-brand">
-<i class="fa-solid fa-magnifying-glass" style="font-size:1.8rem; color:var(--primary)"></i>
-<span>Verifica Notícia</span>
-</a>
-<div class="navbar-actions" id="navbarActions"></div>
-</div>
-</nav>
- 
-  <div class="result-page" id="resultPage">
-<div style="text-align:center; padding:80px 24px;">
-<div class="loading-spinner" style="margin:0 auto 20px;"></div>
-<p>Carregando resultado...</p>
-</div>
-</div>
- 
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">
+        <div class="brand-icon-wrapper">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <span>Verifica <span class="brand-text-accent">Notícia</span></span>
+      </a>
+      <div class="navbar-actions" id="navbarActions">
+        <!-- Injetado dinamicamente pelo auth.js -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTAINER DO RESULTADO -->
+  <main class="result-page" id="resultPage">
+    <div style="text-align:center; padding:90px 24px;">
+      <div class="loading-spinner" style="margin:0 auto 20px;"></div>
+      <p style="color:var(--text-secondary); font-weight:600; font-size:1.05rem;">
+        Carregando análise e fontes factuais...
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
   <footer class="footer">
-<div class="footer-inner">
-<p>© 2025 Verifica Notícia</p>
-</div>
-</footer>
- 
-  <script src="js/auth.js?v=2"></script>
-<script src="js/api.js?v=2"></script>
-<script src="js/result.js?v=2"></script>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <i class="fa-solid fa-shield-halved" style="color:var(--primary)"></i>
+        <span>Verifica Notícia</span>
+      </div>
+      <p>Projeto acadêmico de combate à desinformação com IA • Cruzeiro do Sul 2026</p>
+      <p style="margin-top:8px; font-size:0.82rem; color:var(--text-muted);">
+        © 2026 Verifica Notícia — Todos os direitos reservados
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/result.js"></script>
 </body>
 </html>
